@@ -1,9 +1,7 @@
 .header {
-  /* background-color: lightseagreen; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* min-height: 40px; */
   padding: 32px 40px 0;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-weight: 700;
