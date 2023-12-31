@@ -1,4 +1,6 @@
 import "./Header.css";
+import logo from "../../images/logo.svg";
+import avatar from "../../images/avatar.svg";
 
 const Header = ({ locationName, onCreateModal }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -9,7 +11,7 @@ const Header = ({ locationName, onCreateModal }) => {
     <header className="header">
       <div className="header__logo">
         <div>
-          <img src={require("../../images/logo.svg").default} alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         <div>
           {currentDate}, {locationName}
@@ -27,7 +29,7 @@ const Header = ({ locationName, onCreateModal }) => {
         </div>
         <div>Terrence Tegegne</div>
         <div>
-          <img src={require("../../images/avatar.svg").default} alt="avatar" />
+          <img src={avatar} alt="avatar" />
         </div>
       </div>
     </header>

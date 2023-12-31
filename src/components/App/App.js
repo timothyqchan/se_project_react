@@ -31,12 +31,16 @@ function App() {
   };
 
   useEffect(() => {
-    getForcastWeather().then((data) => {
-      const temperature = parseWeatherData(data);
-      setTemp(temperature);
-      const name = parseLocationData(data);
-      setLoaction(name);
-    });
+    getForcastWeather()
+      .then((data) => {
+        const temperature = parseWeatherData(data);
+        setTemp(temperature);
+        const name = parseLocationData(data);
+        setLoaction(name);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
