@@ -9,7 +9,7 @@ const Header = ({ locationName, onCreateModal }) => {
     <header className="header">
       <div className="header__logo">
         <div>
-          <img src="../images/logo.svg" alt="logo" />
+          <img src={require("../../images/logo.svg").default} alt="logo" />
         </div>
         <div>
           {currentDate}, {locationName}
@@ -17,13 +17,17 @@ const Header = ({ locationName, onCreateModal }) => {
       </div>
       <div className="header__avatar-logo">
         <div>
-          <button type="text" onClick={onCreateModal}>
+          <button
+            className="add-clothes_button"
+            type="text"
+            onClick={onCreateModal}
+          >
             + Add clothes
           </button>
         </div>
         <div>Terrence Tegegne</div>
         <div>
-          <img src="/images/avatar.svg" alt="avatar" />
+          <img src={require("../../images/avatar.svg").default} alt="avatar" />
         </div>
       </div>
     </header>
