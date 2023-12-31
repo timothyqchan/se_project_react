@@ -1,0 +1,34 @@
+.modal__item-content {
+  position: relative;
+  background-color: white;
+  max-width: 496px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.modal__item-button_type_close {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 16px;
+  height: 16px;
+  background-color: #e9e9e9;
+  background-image: url("../../images/close-white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.modal__item-info {
+  padding: 20px 32px 32px 32px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.modal__item-info_type_name {
+  padding-bottom: 12px;
+}

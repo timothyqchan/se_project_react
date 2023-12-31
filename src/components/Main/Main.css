@@ -1,0 +1,19 @@
+.main {
+  padding: 28px 40px 0;
+}
+
+.card_section {
+  margin-top: 20px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.card_items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
