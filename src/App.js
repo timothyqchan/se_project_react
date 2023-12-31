@@ -2,16 +2,16 @@ import logo from "./logo.svg";
 import "./App.css";
 import ItemModal from "./ItemModal/ItemModal";
 import Header from "./Header/Header";
-import WeatherCard from "./WeatherCard/WeatherCard";
+import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
 
 function App() {
+  const weatherTemp = "100° F";
   return (
     <div>
       <Header />
-      <main className="main">
-        <WeatherCard day={true} type="clear" />
-        <section id="card-section">card section</section>
-      </main>
+      <Main weatherTemp={weatherTemp} />
+      <Footer />
     </div>
   );
 }
