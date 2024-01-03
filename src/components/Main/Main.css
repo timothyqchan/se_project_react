@@ -17,3 +17,10 @@
   justify-content: center;
   margin-top: 20px;
 }
+
+.card_section-title {
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+}

@@ -29,3 +29,8 @@
   font-size: 20px;
   line-height: 1.2;
 }
+
+.header__username {
+  text-decoration: none;
+  color: black;
+}

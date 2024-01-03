@@ -2,7 +2,7 @@ import "./AddItemModal.css";
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ handleCloseModal, isOpen }) => {
+const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -20,6 +20,7 @@ const AddItemModal = ({ handleCloseModal, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    onAddItem({ name, imageUrl, weather });
   };
 
   return (
