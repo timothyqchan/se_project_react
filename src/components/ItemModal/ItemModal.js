@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 
-const ItemModal = ({ selectedCard, onClose }) => {
+const ItemModal = ({ selectedCard, onClose, openConfirmationModal }) => {
   return (
     <div className={`modal`}>
       <div className="modal__item-content">
@@ -11,8 +11,19 @@ const ItemModal = ({ selectedCard, onClose }) => {
         />
         <img src={selectedCard.imageUrl} alt={selectedCard.name} />
         <div className="modal__item-info">
-          <p className="modal__item-info_type_name">{selectedCard.name}</p>
-          <p>Weather type: {selectedCard.weather}</p>
+          <div>
+            <p className="modal__item-info_type_name">{selectedCard.name}</p>
+            <p className="modal__item-info_type_weather">
+              Weather type: {selectedCard.weather}
+            </p>
+          </div>
+          <button
+            className="modal__button_type_delete"
+            type="button"
+            onClick={openConfirmationModal}
+          >
+            Delete item
+          </button>
         </div>
       </div>
     </div>

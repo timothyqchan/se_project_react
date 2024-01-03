@@ -1,35 +1,36 @@
-import { defaultHeaders, baseUrl } from "./constants.js";
+import { defaultHeaders, baseUrl } from "./constants";
 
 export function checkServerResponse(res) {
   if (res.ok) {
     return res.json();
-  } else {
-    return Promise.reject(`Error: ${res.status}`);
   }
+  return Promise.reject(`Error: ${res.status}`);
+}
+
+function makeServerRequest(url, options) {
+  return fetch(url, options).then(checkServerResponse);
 }
 
 export function fetchAllClothing() {
-  return fetch(`${baseUrl}/items`, {
-    method: "GET",
+  return makeServerRequest(baseUrl, {
     headers: defaultHeaders,
-  }).then(checkServerResponse);
+  });
 }
 
 export function addNewItem(item) {
-  return fetch(`${baseUrl}/items`, {
+  return makeServerRequest(baseUrl, {
     method: "POST",
     headers: defaultHeaders,
     body: JSON.stringify({
       name: item.name,
       imageUrl: item.imageUrl,
       weather: item.weather,
-    }).then(checkServerResponse),
+    }),
   });
 }
 
 export function deleteItem(id) {
-  return fetch(`${baseUrl}/items/${id}`, {
+  return makeServerRequest(`${baseUrl}/${id}`, {
     method: "DELETE",
-    headers: defaultHeaders,
-  }).then(checkServerResponse);
+  });
 }

@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import Profile from "../Profile/Profile";
+import DeleteConfirmModal from "../../DeleteConfirmationModal/DeleteConfirmationModal";
 import { fetchAllClothing, addNewItem, deleteItem } from "../../utils/api";
 import {
   getForcastWeather,
@@ -132,6 +133,15 @@ function App() {
             selectedCard={selectedCard}
             name="previewGarment"
             onClose={handleCloseModal}
+            openConfirmationModal={openConfirmationModal}
+          />
+        )}
+        {activeModal === "confirm" && (
+          <DeleteConfirmModal
+            selectedCard={selectedCard}
+            name="deleteConfirm"
+            onClose={handleCloseModal}
+            onDeleteItem={onDeleteItem}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

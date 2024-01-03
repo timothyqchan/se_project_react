@@ -22,6 +22,9 @@
 }
 
 .modal__item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
   padding: 20px 32px 32px 32px;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-weight: 700;
@@ -30,5 +33,20 @@
 }
 
 .modal__item-info_type_name {
+  margin: 0;
   padding-bottom: 12px;
+}
+
+.modal__item-info_type_weather {
+  margin: 0;
+}
+
+.modal__button_type_delete {
+  color: rgba(255, 77, 0, 1);
+  background-color: white;
+  border: none;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
 }
