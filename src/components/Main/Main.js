@@ -7,12 +7,13 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 function Main({ weatherTemp, onSelectCard, setClothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
+  const tempF = weatherTemp?.temperature?.F;
   const weatherType = useMemo(() => {
-    if (temp >= 86) {
+    if (tempF >= 86) {
       return "hot";
-    } else if (temp >= 66 && temp <= 85) {
+    } else if (tempF >= 66 && tempF <= 85) {
       return "warm";
-    } else if (temp <= 65) {
+    } else if (tempF <= 65) {
       return "cold";
     }
   }, [weatherTemp]);

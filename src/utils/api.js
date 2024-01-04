@@ -7,7 +7,7 @@ export function checkServerResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
-function makeServerRequest(url, options) {
+export function makeServerRequest(url, options) {
   return fetch(url, options).then(checkServerResponse);
 }
 
