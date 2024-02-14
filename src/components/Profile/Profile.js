@@ -9,10 +9,17 @@ function Profile({
   onAddItem,
   onDeleteItem,
   onSelectCard,
+  handleEditProfileModal,
+  handleLogout,
+  onCardLike,
+  isLoggedIn,
 }) {
   return (
     <div className="profile__container">
-      <Sidebar />
+      <Sidebar
+        handleEditProfileModal={handleEditProfileModal}
+        handleLogout={handleLogout}
+      />
       <ClothesSection
         clothingItems={clothingItems}
         handleCloseModal={handleCloseModal}
@@ -20,6 +27,8 @@ function Profile({
         onAddItem={onAddItem}
         onDeleteItem={onDeleteItem}
         onSelectCard={onSelectCard}
+        onCardLike={onCardLike}
+        isLoggedIn={isLoggedIn}
       />
     </div>
   );

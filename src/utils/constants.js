@@ -11,7 +11,7 @@ import stormNight from "../images/night/storm.svg";
 import snowNight from "../images/night/snow.svg";
 import fogNight from "../images/night/fog.svg";
 
-export const baseUrl = "http://localhost:3001/items";
+export const baseUrl = "http://localhost:3001";
 export const defaultHeaders = { "Content-Type": "application/json" };
 
 export const weatherOptions = [

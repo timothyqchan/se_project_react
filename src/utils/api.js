@@ -1,36 +1,66 @@
-import { defaultHeaders, baseUrl } from "./constants";
+import { baseUrl } from "./constants";
+import processServerResponse from "./processServerResponse";
 
-export function checkServerResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-}
+export const getClothingItem = () => {
+  return fetch(`${baseUrl}/items`).then(processServerResponse);
+};
 
-export function makeServerRequest(url, options) {
-  return fetch(url, options).then(checkServerResponse);
-}
-
-export function fetchAllClothing() {
-  return makeServerRequest(baseUrl, {
-    headers: defaultHeaders,
-  });
-}
-
-export function addNewItem(item) {
-  return makeServerRequest(baseUrl, {
+export const addNewItem = ({ name, imageUrl, weather }) => {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers: defaultHeaders,
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
-      name: item.name,
-      imageUrl: item.imageUrl,
-      weather: item.weather,
+      name,
+      imageUrl,
+      weather,
     }),
-  });
-}
+  }).then((res) => processServerResponse(res));
+};
 
-export function deleteItem(id) {
-  return makeServerRequest(`${baseUrl}/${id}`, {
+export const deleteItem = (id) => {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
-  });
-}
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => processServerResponse(res));
+};
+
+export const profileUpdate = (name, avatar) => {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      name,
+      avatar,
+    }),
+  }).then(processServerResponse);
+};
+
+export const addCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(processServerResponse);
+};
+
+export const removeCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(processServerResponse);
+};

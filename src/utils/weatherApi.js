@@ -1,14 +1,15 @@
 // https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
-import { checkServerResponse, makeServerRequest } from "./api";
+import processServerResponse from "./processServerResponse";
 
 const latitude = "44.34";
 const longitude = "10.99";
 const APIkey = "1426d0f2976316a8c647a35db05cfe64";
 
 export const getForcastWeather = () => {
-  return makeServerRequest(
+  const weatherApi = fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  );
+  ).then(processServerResponse);
+  return weatherApi;
 };
 
 export const parseWeatherData = (data) => {
