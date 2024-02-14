@@ -22,7 +22,7 @@ const Header = ({
     <header className="header">
       <div className="header__logo">
         <div>
-          <Link to="/se_project_react">
+          <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
         </div>
