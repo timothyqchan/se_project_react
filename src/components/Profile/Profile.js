@@ -1,4 +1,4 @@
-import Sidebar from "../Sidebar/Sidebar";
+import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import "./Profile.css";
 
@@ -16,7 +16,7 @@ function Profile({
 }) {
   return (
     <div className="profile__container">
-      <Sidebar
+      <SideBar
         handleEditProfileModal={handleEditProfileModal}
         handleLogout={handleLogout}
       />

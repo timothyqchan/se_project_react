@@ -1,4 +1,4 @@
-.sidebar {
+.sideBar {
   width: 20%;
   display: flex;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
@@ -8,19 +8,19 @@
   margin: 40px 0;
 }
 
-.sidebar__container {
+.sideBar__container {
   display: flex;
   gap: 10px;
   align-content: baseline;
   padding-left: 40px;
 }
 
-.sidebar__avatar_image {
+.sideBar__avatar_image {
   height: 40px;
   border-radius: 50%;
 }
 
-.sidebar__username {
+.sideBar__username {
   min-width: 135px;
   margin-top: 10px;
 }
