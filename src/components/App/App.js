@@ -197,7 +197,7 @@ function App() {
           .addCardLike(id, token)
           .then(({ data: updatedCard }) => {
             console.log(updatedCard);
-            setCards((cards) =>
+            setClothingItems((cards) =>
               cards.map((card) => (card._id === id ? updatedCard : card))
             );
           })
@@ -205,7 +205,7 @@ function App() {
       : api
           .removeCardLike(id, token)
           .then(({ data: updatedCard }) => {
-            setCards((cards) =>
+            setClothingItems((cards) =>
               cards.map((card) => (card._id === id ? updatedCard : card))
             );
           })
@@ -261,7 +261,6 @@ function App() {
             onSelectCard={handleSelectedCard}
             isLoggedIn={isLoggedIn}
           />
-          <ToggleSwitch />
           <Route exact path="/">
             <Main
               weatherTemp={temp}

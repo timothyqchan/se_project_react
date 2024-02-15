@@ -1,5 +1,4 @@
-import { baseUrl } from "../utils/api";
-import { defaultHeaders } from "./constants.js";
+import { baseUrl, defaultHeaders } from "./constants.js";
 import processServerResponse from "./processServerResponse.js";
 
 export const registration = (email, password, name, avatar) => {
