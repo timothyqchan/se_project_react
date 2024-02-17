@@ -7,11 +7,11 @@ import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode basename={"/WhatToWear"}>
-    <BrowserRouter>
+  <BrowserRouter basename={"/"}>
+    <React.StrictMode>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </React.StrictMode>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -10,9 +10,9 @@ const ItemModal = ({
 }) => {
   return (
     <div className={`modal`}>
-      <div className="modal__item-content">
+      <div className="modal__content">
         <button
-          className="modal__item-button_type_close"
+          className="modal__button_type_close"
           type="button"
           onClick={onClose}
         />
