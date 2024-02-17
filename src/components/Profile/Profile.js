@@ -1,37 +1,31 @@
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
-import "./Profile.css";
+import "../Profile/Profile.css";
 
-function Profile({
-  clothingItems,
-  handleCloseModal,
-  onCreateModal,
-  onAddItem,
-  onDeleteItem,
+const Profile = ({
   onSelectCard,
+  openModal,
+  cards,
   handleEditProfileModal,
   handleLogout,
   onCardLike,
   isLoggedIn,
-}) {
+}) => {
   return (
-    <div className="profile__container">
+    <div className="profile">
       <SideBar
         handleEditProfileModal={handleEditProfileModal}
         handleLogout={handleLogout}
       />
       <ClothesSection
-        clothingItems={clothingItems}
-        handleCloseModal={handleCloseModal}
-        onCreateModal={onCreateModal}
-        onAddItem={onAddItem}
-        onDeleteItem={onDeleteItem}
+        cards={cards}
+        openModal={openModal}
         onSelectCard={onSelectCard}
         onCardLike={onCardLike}
         isLoggedIn={isLoggedIn}
       />
     </div>
   );
-}
+};
 
 export default Profile;

@@ -1,34 +1,30 @@
-import ItemCard from "../ItemCard/ItemCard";
+import "../ClothesSection/ClothesSection.css";
 import { useContext } from "react";
+import ItemCard from "../ItemCard/ItemCard";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import "./ClothesSection.css";
 
 const ClothesSection = ({
-  clothingItems,
-  onCreateModal,
   onSelectCard,
+  openModal,
+  cards,
   isLoggedIn,
   onCardLike,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
-  const filteredCards = clothingItems.filter((item) => {
+  const filteredCards = cards.filter((item) => {
     return item.owner === currentUser?._id;
   });
 
   return (
-    <section className="clothesSection">
-      <div className="card_section-title">
-        <p>Your Items</p>
-        <button
-          type="button"
-          className="card-section__avatar_button"
-          onClick={onCreateModal}
-        >
-          + Add clothes
+    <div className="profile__cards">
+      <div className="profile__cards_text">
+        <h1 className="profile__cards_title">Your items</h1>
+        <button onClick={openModal} className="profile__cards_new">
+          + Add new
         </button>
       </div>
-      <div className="card_items">
+      <div className="profile__cards-content">
         {filteredCards.map((item) => {
           return (
             <ItemCard
@@ -41,7 +37,7 @@ const ClothesSection = ({
           );
         })}
       </div>
-    </section>
+    </div>
   );
 };
 

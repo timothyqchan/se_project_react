@@ -1,53 +1,51 @@
-import "./Header.css";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import logo from "../../images/logo.svg";
-import avatar from "../../images/avatar.svg";
+import "../Header/Header.css";
+import headerLogo from "../../images/wtwr°.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
+const currentDate = new Date().toLocaleString("default", {
+  month: "long",
+  day: "numeric",
+});
+
 const Header = ({
-  locationName,
   handleCreateModal,
   handleLoginModal,
   handleRegisterModal,
   isLoggedIn,
+  location,
 }) => {
-  const currentDate = new Date().toLocaleString("default", {
-    month: "long",
-    day: "numeric",
-  });
   const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <header className="header">
-      <div className="header__logo">
-        <div>
-          <Link to="/">
-            <img src={logo} alt="logo" />
-          </Link>
-        </div>
-        <div>
-          {currentDate}, {locationName}
-        </div>
+      <div className="header__info">
+        <Link to="/" className="header__link">
+          <img src={headerLogo} alt="Logo" className="header__logo"></img>
+        </Link>
+        <p className="header__info_date">
+          {currentDate}, {location}
+        </p>
       </div>
-      <div className="header__avatar-logo">
+      <div className="header__info_user">
         <ToggleSwitch />
         {isLoggedIn ? (
           <>
-            <button
-              className="add-clothes_button"
-              type="text"
-              onClick={handleCreateModal}
-            >
-              + Add clothes
+            <button onClick={handleCreateModal} className="header__button">
+              + Add Clothes
             </button>
-            <Link to="/profile" className="header__username">
+            <Link className="header__name_link" to="/profile">
               <p className="header__name">{currentUser?.name}</p>
+            </Link>
+            <button className="header__menu"></button>
+            <Link className="header__link" to="/profile">
               <img
-                src={currentUser?.avatar}
                 className="header__avatar"
-                alt="avatar"
-              />
+                alt="Users Avatar"
+                src={currentUser?.avatar}
+              ></img>
             </Link>
           </>
         ) : (

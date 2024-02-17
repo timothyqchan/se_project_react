@@ -1,6 +1,7 @@
 .switch {
   display: flex;
   position: relative;
+  align-self: center;
 }
 
 .switch__box {
@@ -24,19 +25,20 @@
   transition: 0.3s;
 }
 
-.switch__slider-C {
-  top: 3px;
-  left: 32px;
-}
 .switch__slider-F {
   top: 3px;
   left: 4px;
 }
 
-.switch__temp-F {
+.switch__slider-C {
+  top: 3px;
+  left: 32px;
+}
+
+.switch__temp-C {
   position: absolute;
   top: -6px;
-  left: 13px;
+  left: 41px;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -44,10 +46,10 @@
   cursor: pointer;
 }
 
-.switch__temp-C {
+.switch__temp-F {
   position: absolute;
   top: -6px;
-  left: 41px;
+  left: 13px;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -72,4 +74,10 @@
   top: -6px;
   left: 13px;
   color: rgba(126, 126, 126, 1);
+}
+
+@media screen and (max-width: 1020px) {
+  .switch {
+    display: none;
+  }
 }

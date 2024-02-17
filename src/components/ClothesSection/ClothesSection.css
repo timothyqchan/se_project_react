@@ -1,27 +1,35 @@
-.clothesSection {
-  max-width: 80%;
-  margin-top: 36px;
-}
-
-.card_section-title {
+.profile__cards {
   display: flex;
-  gap: 18px;
-  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  flex-direction: column;
+}
+
+.profile__cards_text {
+  display: flex;
+  gap: 20px;
+}
+
+.profile__cards_title {
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.2;
-  margin-left: 32px;
-  margin-bottom: 0;
+  line-height: 25px;
 }
 
-.card-section__avatar_button {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.2;
+.profile__cards_new {
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
   border: none;
-  background-color: transparent;
+  opacity: 60%;
+  cursor: pointer;
 }
 
-.card-section__avatar_button:hover {
-  cursor: pointer;
+.profile__cards-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
 }

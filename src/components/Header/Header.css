@@ -2,23 +2,59 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 40px 0;
-  font-family: "Cabinet Grotesk", Arial, sans-serif;
-  font-weight: 700;
+  max-width: 1440px;
+  height: 40px;
+  padding: 32px;
+  margin: 0 40px 28px;
+}
+
+.header__info {
+  display: flex;
+  gap: 24px;
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
   font-size: 20px;
-  line-height: 1.2;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.header__link {
+  align-self: center;
 }
 
 .header__logo {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+  width: 89px;
 }
 
-.header__avatar-logo {
+.header__info_user {
   display: flex;
   gap: 20px;
-  align-items: center;
+}
+
+.header__button {
+  margin-right: 20px;
+  border: none;
+  background: transparent;
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.header__name {
+  margin-right: 12px;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.header__name_link {
+  text-decoration: none;
+  color: black;
 }
 
 .header__avatar {
@@ -26,18 +62,55 @@
   width: 40px;
   align-self: center;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-.add-clothes_button {
-  background: none;
+.header__menu {
+  display: none;
+}
+
+.header__buttons {
   border: none;
-  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  background-color: transparent;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 24px;
+  cursor: pointer;
 }
 
-.header__username {
-  text-decoration: none;
-  color: black;
+@media screen and (max-width: 1020px) {
+  .header__info {
+    font-size: 18px;
+  }
+
+  .header__button {
+    display: none;
+  }
+
+  .header__name {
+    display: none;
+  }
+
+  .header__menu {
+    display: block;
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 90px;
+    margin: 16px 30px;
+    width: 90%;
+  }
+
+  .header__info_date {
+    display: none;
+  }
 }

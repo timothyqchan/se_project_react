@@ -1,5 +1,5 @@
-import "./ItemCard.css";
 import React from "react";
+import "../ItemCard/ItemCard.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 import likeButton from "../../images/card-like-button.svg";
@@ -11,21 +11,21 @@ const ItemCard = ({ item, onSelectCard, isLoggedIn, onCardLike }) => {
   const isLiked = item.likes.some((id) => id === currentUser?._id);
 
   return (
-    <div className="card">
-      <div className="card__container">
-        <div className="card__container-top">
-          <div className="card__name-frame">
-            <h2 className="card__name">{item.name}</h2>
+    <div className="cards__container">
+      <div className="cards__item_container">
+        <div className="cards__item_top-wrapper">
+          <div className="cards__title_frame">
+            <h2 className="cards__title">{item.name}</h2>
           </div>
           {isLoggedIn ? (
             <button
               onClick={() => onCardLike(item._id, isLiked)}
-              className="card__like-wrapper"
+              className="cards__like-wrapper"
             >
               <img
                 src={isLiked ? likeButtonActive : likeButton}
                 alt="like button"
-                className="card__like"
+                className="cards__like"
               />
             </button>
           ) : (
@@ -33,11 +33,11 @@ const ItemCard = ({ item, onSelectCard, isLoggedIn, onCardLike }) => {
           )}
         </div>
         <img
-          src={item.imageUrl}
+          className="cards__image"
           alt={item.name}
-          className="card__image"
+          src={item.imageUrl}
           onClick={() => onSelectCard(item)}
-        />
+        ></img>
       </div>
     </div>
   );

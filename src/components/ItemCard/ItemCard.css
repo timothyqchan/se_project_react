@@ -1,27 +1,99 @@
-.card {
+.cards__temp {
+  color: #000;
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 40px;
+}
+
+.cards__items {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 17px;
+  margin: 40px;
   max-width: 1440px;
 }
 
-.card__name {
-  font-family: "Cabinet Grotesk", Arial, sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.2;
-  text-align: center;
-  position: relative;
-  top: 40px;
+.cards__container {
+  max-width: 1440px;
 }
 
-.card__image {
+.cards__item_container {
+  justify-content: center;
+  border-radius: 19px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: #e9e9e9;
+}
+
+.cards__item_top-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.cards__like-wrapper {
+  border: none;
+  border: none;
+  background-color: transparent;
+  width: 20px;
+  height: 17px;
+}
+
+.cards__like {
+  align-self: center;
+  cursor: pointer;
+}
+
+.cards__like-hidden {
+  display: none;
+}
+
+.cards__title {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.cards__title_frame {
+  display: flex;
+  padding: 2px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #fff;
+  width: fit-content;
+  height: fit-content;
+}
+
+.cards__image {
   width: 328px;
   height: 328px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
+  border-radius: 0 0 19px 19px;
+  cursor: pointer;
+  margin-top: 16px;
 }
 
-.card__image:hover {
-  cursor: pointer;
+.cards__random {
+  display: none;
+}
+
+@media screen and (max-width: 1020px) {
+  .cards__temp {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cards__temp {
+    margin: 50px auto;
+  }
 }

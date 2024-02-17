@@ -1,3 +1,9 @@
 button {
   cursor: pointer;
 }
+
+.App {
+  background-color: #f3f3f3;
+  max-width: 1440px;
+  margin: auto;
+}

@@ -1,9 +1,9 @@
-.profile__container {
+.profile {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 20px;
-  justify-content: center;
-  max-width: 1360px;
-  margin: 0;
+  gap: 80px;
+  margin-top: 63px;
+  margin-bottom: 80px;
+  margin-left: 40px;
+  margin-right: 40px;
+  max-width: 1440px;
 }

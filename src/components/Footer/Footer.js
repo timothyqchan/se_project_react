@@ -1,12 +1,10 @@
-import "./Footer.css";
-
-function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
-      <div>Developed by TripleTen Student, Timothy Chan</div>
-      <div>2023</div>
+      <p className="footer__tag">Developed by Timothy Chan</p>
+      <p className="footer__tag">2023</p>
     </footer>
   );
-}
+};
 
 export default Footer;
