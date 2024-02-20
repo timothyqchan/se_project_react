@@ -14,9 +14,9 @@ function Main({ weatherTemp, onSelectCard, cards, isLoggedIn, onCardLike }) {
   const getWeatherType = () => {
     if (tempInF >= 86) {
       return "hot";
-    } else if (temp >= 66 && temp <= 85) {
+    } else if (tempInF >= 66 && tempInF <= 85) {
       return "warm";
-    } else if (temp <= 65) {
+    } else if (tempInF <= 65) {
       return "cold";
     }
   };
