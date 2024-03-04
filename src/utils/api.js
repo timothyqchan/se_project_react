@@ -2,7 +2,7 @@ import processServerResponse from "./processServerResponse";
 
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.wtwrproject.crabdance.com"
+    ? "https://wtwrproject.crabdance.com"
     : "http://localhost:3001";
 
 export const getClothingItem = () => {
