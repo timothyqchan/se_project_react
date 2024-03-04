@@ -32,12 +32,8 @@ import {
   parseWeather,
   parseWeatherCity,
 } from "../../utils/weatherApi";
-import {
-  getClothingItem,
-  addNewItem,
-  deleteItem,
-  profileUpdate,
-} from "../../utils/api";
+import { getClothingItem, addNewItem, deleteItem } from "../../utils/api";
+import { profileUpdate } from "../../utils/auth";
 import * as auth from "../../utils/auth";
 import * as api from "../../utils/api";
 
