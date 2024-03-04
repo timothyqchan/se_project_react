@@ -1,6 +1,9 @@
 import processServerResponse from "./processServerResponse";
 
-export const baseUrl = "http://localhost:3001";
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://www.wtwrproject.crabdance.com"
+    : "http://localhost:3001";
 
 export const getClothingItem = () => {
   return fetch(`${baseUrl}/items`).then(processServerResponse);
