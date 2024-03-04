@@ -194,7 +194,7 @@ function App() {
       auth
         .checkToken(jwt)
         .then((res) => {
-          setIsLoggedIn(token !== "" ? true : false);
+          setIsLoggedIn(jwt !== "" ? true : false);
           setCurrentUser(res.data);
         })
         .catch((err) => {
