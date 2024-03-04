@@ -96,7 +96,7 @@ function App() {
             console.error(err);
           });
       })
-      .catch(() => console.log("Error!"));
+      .catch((err) => console.error(err));
   }, []);
 
   const handleToggleSwitchChange = () => {
@@ -194,11 +194,11 @@ function App() {
       auth
         .checkToken(jwt)
         .then((res) => {
-          setIsLoggedIn(true);
+          setIsLoggedIn(token !== "" ? true : false);
           setCurrentUser(res.data);
         })
         .catch((err) => {
-          console.error(err);
+          console.error(`Token Check use effect: ${err}`);
         });
     }
   }, []);
