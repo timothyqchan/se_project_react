@@ -2,7 +2,7 @@
   "name": "se_project_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wtwrproject.crabdance.com",
+  "homepage": "https://www.wtwrproject.crabdance.com",
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

@@ -41,19 +41,19 @@ export const deleteItem = (id) => {
   }).then((res) => processServerResponse(res));
 };
 
-export const addCardLike = ({ _id, user }, token) => {
-  return fetch(`${baseUrl}/items/${_id}/likes`, {
+export const addCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ _id, user }),
+    body: JSON.stringify(id),
   }).then(processServerResponse);
 };
 
-export const removeCardLike = ({ _id }, token) => {
-  return fetch(`${baseUrl}/items/${_id}/likes`, {
+export const removeCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
