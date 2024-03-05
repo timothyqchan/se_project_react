@@ -59,6 +59,6 @@ export const removeCardLike = (id, token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ _id }),
+    body: JSON.stringify(id),
   }).then(processServerResponse);
 };
