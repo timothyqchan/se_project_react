@@ -47,6 +47,9 @@ function App() {
   const [cards, setCards] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [token, setToken] = useState("");
+  const [noAvatar, setNoAvatar] = useState("");
+  const history = useHistory();
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -103,6 +106,11 @@ function App() {
     }
   };
 
+  const handleNoAvatar = (name) => {
+    const initial = name.slice(0, 1);
+    return initial;
+  };
+
   const onAddItem = ({ name, imageUrl, weather }) => {
     addNewItem({ name, imageUrl, weather })
       .then((res) => {
@@ -131,17 +139,19 @@ function App() {
       .then((res) => {
         if (res) {
           localStorage.setItem("jwt", res.token);
-          auth
-            .checkToken(res.token)
-            .then((data) => {
-              setCurrentUser(data.data);
-              setIsLoggedIn(true);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
+          if (res.token) {
+            return auth.checkToken(res.token);
+          }
         }
+      })
+      .then((res) => {
+        const data = res.data;
+        setIsLoggedIn(true);
+        setCurrentUser(data);
+        setToken(data.token);
         handleCloseModal();
+        history.push("/profile");
+        setNoAvatar(handleNoAvatar(data.name));
       })
       .catch((err) => {
         console.error("Login failed", err);
@@ -153,17 +163,9 @@ function App() {
       .registration(email, password, name, avatar)
       .then((res) => {
         if (res) {
-          localStorage.setItem("jwt", res.token);
-          auth
-            .checkToken(res.token)
-            .then((data) => {
-              setCurrentUser(data);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
+          handleLogin({ email, password });
+          handleCloseModal();
         }
-        handleCloseModal();
       })
       .catch((err) => {
         console.error(err);
@@ -185,13 +187,13 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    if ({ jwt }) {
-      localStorage.setItem("jwt", jwt);
+    if (jwt) {
       auth
         .checkToken(jwt)
         .then((res) => {
           setIsLoggedIn(jwt !== "" ? true : false);
           setCurrentUser(res.data);
+          setToken(jwt);
         })
         .catch((err) => {
           console.error(`Token Check use effect: ${err}`);
@@ -199,7 +201,6 @@ function App() {
     }
   }, []);
 
-  const history = useHistory("");
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
