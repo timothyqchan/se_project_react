@@ -1,7 +1,7 @@
 import { baseUrl } from "./constants";
 import processServerResponse from "./processServerResponse";
 
-export const registration = (email, password, name, avatar) => {
+export const registration = ({ email, password, name, avatar }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
@@ -17,7 +17,7 @@ export const registration = (email, password, name, avatar) => {
     });
 };
 
-export const authorize = (email, password) => {
+export const authorize = ({ email, password }) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
@@ -33,7 +33,7 @@ export const authorize = (email, password) => {
     });
 };
 
-export const profileUpdate = (name, avatar) => {
+export const profileUpdate = ({ name, avatar }) => {
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
