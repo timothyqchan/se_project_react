@@ -49,16 +49,19 @@ export const profileUpdate = (name, avatar) => {
 };
 
 export const checkToken = (token) => {
-  return fetch(`${baseUrl}/users/me`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
-    },
-  })
-    .then(processServerResponse)
-    .catch((err) => {
-      console.log(err);
-      throw err;
-    });
+  const jwt = localStorage.getItem("jwt");
+  if (jwt) {
+    return fetch(`${baseUrl}/users/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then(processServerResponse)
+      .then((data) => {
+        return data;
+      })
+      .catch((e) => console.error(`Error in auth checkToken: ${e}`));
+  }
 };
