@@ -2,7 +2,7 @@
   "name": "se_project_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.wtwrproject.crabdance.com",
+  "homepage": "https://www.wtwrproject.rainbowcup.com",
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "scp -r ./build/* timothyqchan@wtwrproject.crabdance.com:/home/timothyqchan/frontend"
+    "deploy": "scp -r ./build/* timothyqchan@wtwrproject.rainbowcup.com:/home/timothyqchan/frontend"
   },
   "eslintConfig": {
     "extends": [
