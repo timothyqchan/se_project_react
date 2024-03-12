@@ -1,4 +1,4 @@
-import { baseUrl } from "../utils/api";
+import { baseUrl } from "./constants";
 import processServerResponse from "./processServerResponse";
 
 export const registration = (email, password, name, avatar) => {

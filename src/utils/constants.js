@@ -1,3 +1,8 @@
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwrproject.crabdance.com"
+    : "http://localhost:3001";
+
 export const defaultClothingItems = [
   {
     _id: 0,
