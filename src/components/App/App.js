@@ -185,10 +185,13 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if ({ jwt }) {
-      checkToken(jwt)
+      localStorage.setItem("jwt", jwt);
+      auth
+        .checkToken(jwt)
         .then((res) => {
-          setIsLoggedIn(true);
-          setCurrentUser(res);
+          setIsLoggedIn(jwt !== "" ? true : false);
+          setCurrentUser(res.data);
+          setToken(jwt);
         })
         .catch((err) => {
           console.error(`Token Check use effect: ${err}`);
