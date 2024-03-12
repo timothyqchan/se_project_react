@@ -191,7 +191,6 @@ function App() {
         .then((res) => {
           setIsLoggedIn(jwt !== "" ? true : false);
           setCurrentUser(res.data);
-          setToken(jwt);
         })
         .catch((err) => {
           console.error(`Token Check use effect: ${err}`);
@@ -202,7 +201,6 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
-    history.push("/");
   };
 
   const handleCardLike = (id, isLiked) => {
