@@ -48,6 +48,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
+  const history = useHistory("");
+
   const handleCreateModal = () => {
     setActiveModal("create");
   };
@@ -141,6 +143,7 @@ function App() {
               console.error(err);
             });
         }
+        handleCloseModal();
       })
       .catch((err) => {
         console.error("Login failed", err);
@@ -170,7 +173,6 @@ function App() {
   }
 
   const handleEditUser = ({ name, avatar }) => {
-    console.log(name, avatar);
     profileUpdate(name, avatar)
       .then(({ data }) => {
         setCurrentUser(data);
@@ -190,8 +192,7 @@ function App() {
         .checkToken(jwt)
         .then((res) => {
           setIsLoggedIn(jwt !== "" ? true : false);
-          setCurrentUser(res.data);
-          setToken(jwt);
+          setCurrentUser(res);
         })
         .catch((err) => {
           console.error(`Token Check use effect: ${err}`);
@@ -202,6 +203,7 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
+    history.push("/");
   };
 
   const handleCardLike = (id, isLiked) => {
