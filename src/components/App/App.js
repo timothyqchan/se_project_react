@@ -191,8 +191,8 @@ function App() {
       auth
         .checkToken(jwt)
         .then((res) => {
-          setIsLoggedIn(jwt !== "" ? true : false);
-          setCurrentUser(res);
+          setIsLoggedIn(true);
+          setCurrentUser(res.data);
         })
         .catch((err) => {
           console.error(`Token Check use effect: ${err}`);
