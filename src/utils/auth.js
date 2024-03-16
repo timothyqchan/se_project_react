@@ -7,7 +7,7 @@ export const registration = ({ email, password, name, avatar }) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, avatar, email, password }),
+    body: JSON.stringify({ email, password, name, avatar }),
   }).then(processServerResponse);
 };
 
@@ -37,19 +37,13 @@ export const profileUpdate = ({ name, avatar }) => {
 };
 
 export const checkToken = (token) => {
-  const jwt = localStorage.getItem("jwt");
-  if (jwt) {
-    return fetch(`${baseUrl}/users/me`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${token}`,
-      },
-    })
-      .then(processServerResponse)
-      .then((data) => {
-        return data;
-      })
-      .catch((e) => console.error(`Error in auth checkToken: ${e}`));
-  }
+  return fetch(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  })
+    .then(processServerResponse)
+    .catch((e) => console.error(`Error in auth checkToken: ${e}`));
 };
