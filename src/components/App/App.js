@@ -33,8 +33,12 @@ import {
   parseWeatherCity,
 } from "../../utils/weatherApi";
 import { getClothingItem, addNewItem, deleteItem } from "../../utils/api";
-import { profileUpdate } from "../../utils/auth";
-import * as auth from "../../utils/auth";
+import {
+  registration,
+  authorize,
+  profileUpdate,
+  checkToken,
+} from "../../utils/auth";
 import * as api from "../../utils/api";
 
 function App() {
@@ -128,15 +132,13 @@ function App() {
   };
 
   function handleLogin({ email, password }) {
-    auth
-      .authorize(email, password)
+    return authorize({ email, password })
       .then((res) => {
-        if (res) {
+        if (res.token) {
           localStorage.setItem("jwt", res.token);
-          auth
-            .checkToken(res.token)
-            .then((data) => {
-              setCurrentUser(data.data);
+          checkToken(res.token)
+            .then((user) => {
+              setCurrentUser(user.data);
               setIsLoggedIn(true);
             })
             .catch((err) => {
@@ -151,15 +153,13 @@ function App() {
   }
 
   function handleRegistration({ email, password, name, avatar }) {
-    auth
-      .registration(email, password, name, avatar)
+    return registration({ email, password, name, avatar })
       .then((res) => {
         if (res) {
           localStorage.setItem("jwt", res.token);
-          auth
-            .checkToken(res.token)
-            .then((data) => {
-              setCurrentUser(data);
+          checkToken(res.token)
+            .then((user) => {
+              setCurrentUser(user);
             })
             .catch((err) => {
               console.error(err);
@@ -188,9 +188,9 @@ function App() {
     const jwt = localStorage.getItem("jwt");
     if ({ jwt }) {
       localStorage.setItem("jwt", jwt);
-      auth
-        .checkToken(jwt)
+      checkToken(jwt)
         .then((res) => {
+          console.log(res.data);
           setIsLoggedIn(true);
           setCurrentUser(res.data);
         })
@@ -274,7 +274,6 @@ function App() {
           {activeModal === "profileModal" && (
             <EditProfileModal
               handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "create"}
               onSubmit={handleEditUser}
             />
           )}
