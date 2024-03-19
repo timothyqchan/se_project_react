@@ -27,7 +27,7 @@ export const profileUpdate = ({ name, avatar }) => {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name,

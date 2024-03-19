@@ -173,7 +173,7 @@ function App() {
   }
 
   const handleEditUser = ({ name, avatar }) => {
-    profileUpdate(name, avatar)
+    profileUpdate({ name, avatar })
       .then(({ data }) => {
         setCurrentUser(data);
         handleCloseModal();
@@ -274,6 +274,7 @@ function App() {
           {activeModal === "profileModal" && (
             <EditProfileModal
               handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "create"}
               onSubmit={handleEditUser}
             />
           )}
